@@ -35,23 +35,35 @@
     <title>Frontend Mentor | Article preview component</title>
   </head>
 
-  <body>
+  <body class="ff-p | bg-p-100">
     <main>
       <section>
-        <!-- Shift the overall look and feel by adding these wonderful
-          touches to furniture in your home -->
-
-        <!-- Ever been in a room and felt like something was missing? Perhaps
-          it felt slightly bare and uninviting. I’ve got some simple tips
-          to help you make any room feel complete. -->
-
-        <!-- Michelle Appleton -->
-        <!-- 28 Jun 2020 -->
-
-        <!-- Share -->
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, dolorem.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, dolorem.</p>
-        <p class="bg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, dolorem.</p>
+        <div class="container">
+          <article class="article">
+            <div class="article__image"></div>
+            <div class="article__body | flow bg-p-50">
+              <h1 class="article__title | fs-p-400 fw-p-bold text-p-400">
+                Shift the overall look and feel by adding these wonderful touches to furniture in your home</h1>
+              <p class="article__description | fs-p-300 fw-p-medium text-p-300">Ever been in a room and felt like
+                something was missing? Perhaps it felt slightly bare and uninviting. I’ve got some simple tips to help
+                you
+                make any room feel complete.</p>
+              <div class="article__details-wrapper">
+                <div class="article__author-picture">
+                  <img src="./assets/avatar-michelle.jpg" width="45" height="45" alt="avatar image">
+                </div>
+                <div class="article__details">
+                  <a href="#" onclick="return false;"
+                    class="article__author-name | fs-p-300 fw-p-bold text-p-400">Michelle
+                    Appleton</a>
+                  <p class="article__date | fs-p-300 fw-p-medium text-p-200">28 Jun 2020</p>
+                </div>
+                <div class="article__share">
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
       </section>
     </main>
   </body>
