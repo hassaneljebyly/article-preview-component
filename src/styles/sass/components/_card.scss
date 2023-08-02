@@ -1,4 +1,23 @@
 .bg {
   background-color: aqua;
-  background-image: url('../../../../public/assets/favicon-32x32.png');
+  background-image: url('../../public/assets/favicon-32x32.png');
+  display: grid;
+  grid-template-columns: auto;
+  color: aliceblue;
+}
+
+.css_nano,
+.css_nano + p,
+[class*='css_nano'],
+.css_nano {
+  /* cssnano will remove this comment */
+  display: flex;
+  font-weight: normal;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  margin-left: 1.5rem;
+  margin-right: 2.5rem;
+  font-weight: normal;
+  padding: 1.75rem;
+  width: calc(50rem - (2 * 1.75rem));
 }
