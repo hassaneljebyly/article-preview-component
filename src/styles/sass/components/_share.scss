@@ -1,0 +1,60 @@
+@use "../abstract/mixins" as *;
+
+.share {
+  position: relative;
+  // size of author avatar picture
+  width: 45px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+
+  &__button {
+    padding: .6em;
+    margin-top: 0.1em;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 150ms ease-in-out;
+
+    &:focus {
+      outline: 1px solid var(--clr-p-400);
+      outline-offset: 5px;
+    }
+
+    &:hover {
+      background-color: var(--clr-p-300);
+    }
+
+    .icon--share {
+      fill: var(--clr-p-300);
+    }
+
+    &:hover {
+      .icon--share {
+        fill: var(--clr-p-100);
+      }
+    }
+  }
+
+  &__social-list-wrapper {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // write comment here
+    width: clamp(15.625rem, 21.25rem + -6.25vw, 20rem);
+    padding-block: 1em;
+    border-radius: 10px;
+  }
+
+  &__label {
+    letter-spacing: 0.4em;
+  }
+
+  &__social-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-left: 1em;
+    gap: 1em;
+  }
+}

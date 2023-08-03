@@ -1,0 +1,20 @@
+.icon {
+  --fill: var(--clr-p-100);
+  fill: var(--fill);
+  transition: 150ms ease-in-out;
+
+  &--facebook:hover,
+  &--facebook:focus {
+    --fill: #4e7ddb;
+  }
+
+  &--twitter:hover,
+  &--twitter:focus {
+    --fill: #1daef2;
+  }
+
+  &--pinterest:hover,
+  &--pinterest:focus {
+    --fill: #bd081c;
+  }
+}

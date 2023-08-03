@@ -5,6 +5,7 @@ $article-max-width-large : 730px;
 $article-max-width-small : 400px;
 $article-border-radius : 10px;
 $article-body-max-width: 445px;
+$article-body-padding: 2em;
 
 .article {
   max-width: $article-max-width-small;
@@ -40,23 +41,33 @@ $article-body-max-width: 445px;
 
   &__body {
     --flow-spacer: 1.2em;
+    --block-padding: 1.5em;
     max-width: $article-body-max-width;
     padding-inline: 0.9em;
-    padding-block: 1.5em;
+    padding-block: var(--block-padding);
     border-bottom-left-radius: $article-border-radius;
     border-bottom-right-radius: $article-border-radius;
+    // hide share component overflow
+    overflow-x: hidden;
 
     @include respond-to('medium') {
-      --flow-spacer: 0.75em;
+      --flow-spacer: 1.5em;
+      overflow-x: visible;
       border-radius: 0;
       border-top-right-radius: $article-border-radius;
       border-bottom-right-radius: $article-border-radius;
-      padding: 2.5em;
+      padding-block: var(--block-padding);
+      padding-inline: 2.5em;
     }
+  }
+
+  &__details {
+    margin-right: auto;
   }
 
   &__details-wrapper {
     display: flex;
+    flex-wrap: wrap;
   }
 
   &__author-picture {
