@@ -29,23 +29,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
     <!-- css -->
     <link rel="stylesheet" href="./styles/main.min.css">
+    <!-- js -->
+    <script src="./javascript/script.js" defer></script>
     <title>Frontend Mentor | Article preview component</title>
   </head>
 
-  <!-- 
-    toDo : focus and hover states
-    toDo : aria labels and aria regions
-    toDo : fix padding bottom under author div in mobile view
-   -->
 
   <body class="ff-p | bg-p-100">
     <main>
-      <section>
+      <section aria-labelledby="article__title">
         <div class="container">
           <article class="article">
             <div class="article__image" aria-hidden="true"></div>
             <div class="article__body | flow bg-p-50">
-              <h1 class="article__title | fs-p-400 fw-p-bold text-p-400">
+              <h1 id="article__title" class="article__title | fs-p-400 fw-p-bold text-p-400">
                 Shift the overall look and feel by adding these wonderful touches to furniture in your home</h1>
               <p class="article__description | fs-p-300 fw-p-medium text-p-300">Ever been in a room and felt like
                 something was missing? Perhaps it felt slightly bare and uninviting. I’ve got some simple tips to help
@@ -63,7 +60,8 @@
                 </div>
                 <div class="article__share">
                   <div class="share">
-                    <button class="share__button | bg-p-100" id="share-button">
+                    <button class="share__button | bg-p-100" id="share-button"
+                      aria-controls="share__social-list-wrapper" aria-expanded="false">
                       <svg aria-hidden="true" class="icon icon--share" xmlns="http://www.w3.org/2000/svg" width="15"
                         height="12.5" viewBox="0 0 15 12.5">
                         <path
@@ -72,9 +70,10 @@
                       </svg>
                       <p class="sr-only">share this article</p>
                     </button>
-                    <div class="share__social-list-wrapper | bg-p-400">
+                    <div class="share__social-list-wrapper | bg-p-400" id="share__social-list-wrapper"
+                      aria-hidden="true">
                       <span class="share__label | fs-p-300 fw-p-medium text-p-200">SHARE</span>
-                      <ul class="share__social-list" role="list">
+                      <ul class="share__social-list" role="list" aria-label="social media ">
                         <li class="share__social-list-item">
                           <a id="facebook-link" class="share__link" href="https://www.facebook.com" target="_blank">
                             <span class="sr-only">facebook</span>

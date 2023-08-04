@@ -8,6 +8,7 @@ $article-body-max-width: 445px;
 $article-body-padding: 2em;
 
 .article {
+  --author-picture-size: 45px;
   max-width: $article-max-width-small;
   margin-inline: auto;
   display: flex;
@@ -41,13 +42,15 @@ $article-body-padding: 2em;
 
   &__body {
     --flow-spacer: 1.2em;
-    --block-padding: 1.5em;
+    --body-top-padding: 2em;
+    --body-bottom-padding: 0.5em;
+    --padding-inline-body: 0.9em;
     max-width: $article-body-max-width;
-    padding-inline: 0.9em;
-    padding-block: var(--block-padding);
+    padding-inline: var(--padding-inline-body);
+    padding-top: var(--body-top-padding);
+    padding-bottom: var(--body-bottom-padding);
     border-bottom-left-radius: $article-border-radius;
     border-bottom-right-radius: $article-border-radius;
-    // hide share component overflow
     overflow-x: hidden;
 
     @include respond-to('medium') {
@@ -56,8 +59,16 @@ $article-body-padding: 2em;
       border-radius: 0;
       border-top-right-radius: $article-border-radius;
       border-bottom-right-radius: $article-border-radius;
-      padding-block: var(--block-padding);
+      padding-block: var(--body-top-padding);
       padding-inline: 2.5em;
+    }
+  }
+
+  &__description {
+    margin-bottom: 2.2em;
+
+    @include respond-to('medium') {
+      margin-bottom: 0;
     }
   }
 
@@ -74,5 +85,9 @@ $article-body-padding: 2em;
     overflow: hidden;
     border-radius: 50%;
     margin-right: .7em;
+  }
+
+  &__author-name {
+    cursor: pointer;
   }
 }

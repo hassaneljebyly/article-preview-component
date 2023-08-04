@@ -226,6 +226,7 @@ section {
 }
 
 .article {
+  --author-picture-size: 45px;
   max-width: 400px;
   margin-inline: auto;
   display: flex;
@@ -233,7 +234,7 @@ section {
   border-radius: 10px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
-@media (min-width: 810px) {
+@media (min-width: 900px) {
   .article {
     max-width: 730px;
     flex-direction: row;
@@ -249,7 +250,7 @@ section {
   background-repeat: no-repeat;
   background-size: cover;
 }
-@media (min-width: 810px) {
+@media (min-width: 900px) {
   .article__image {
     aspect-ratio: 1;
     border-radius: 0;
@@ -259,23 +260,34 @@ section {
 }
 .article__body {
   --flow-spacer: 1.2em;
-  --block-padding: 1.5em;
+  --body-top-padding: 2em;
+  --body-bottom-padding: 0.5em;
+  --padding-inline-body: 0.9em;
   max-width: 445px;
-  padding-inline: 0.9em;
-  padding-block: var(--block-padding);
+  padding-inline: var(--padding-inline-body);
+  padding-top: var(--body-top-padding);
+  padding-bottom: var(--body-bottom-padding);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   overflow-x: hidden;
 }
-@media (min-width: 810px) {
+@media (min-width: 900px) {
   .article__body {
     --flow-spacer: 1.5em;
     overflow-x: visible;
     border-radius: 0;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    padding-block: var(--block-padding);
+    padding-block: var(--body-top-padding);
     padding-inline: 2.5em;
+  }
+}
+.article__description {
+  margin-bottom: 2.2em;
+}
+@media (min-width: 900px) {
+  .article__description {
+    margin-bottom: 0;
   }
 }
 .article__details {
@@ -289,6 +301,9 @@ section {
   overflow: hidden;
   border-radius: 50%;
   margin-right: 0.7em;
+}
+.article__author-name {
+  cursor: pointer;
 }
 
 .icon {
@@ -313,24 +328,32 @@ section {
   display: grid;
   place-items: center;
 }
+@media (min-width: 900px) {
+  .share {
+    transform: translateX(13%);
+  }
+}
 .share__button {
   padding: 0.6em;
   margin-top: 0.1em;
   border-radius: 50%;
   cursor: pointer;
-  transition: background-color 150ms ease-in-out;
+  transition: all 200ms ease-in-out;
+  transform-origin: center;
+  z-index: 10;
 }
 .share__button:focus {
   outline: 1px solid var(--clr-p-400);
   outline-offset: 5px;
 }
-.share__button:hover {
-  background-color: var(--clr-p-300);
-}
 .share__button .icon--share {
   fill: var(--clr-p-300);
 }
-.share__button:hover .icon--share {
+.share__button.clicked {
+  transform: rotateZ(360deg);
+  background-color: var(--clr-p-300);
+}
+.share__button.clicked .icon--share {
   fill: var(--clr-p-100);
 }
 .share__social-list-wrapper {
@@ -338,17 +361,74 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: clamp(15.625rem, 21.25rem - 6.25vw, 20rem);
-  padding-block: 1em;
-  border-radius: 10px;
+  padding-block: var(--body-bottom-padding);
+  padding-inline: var(--padding-inline-body);
+  width: var(--article-body-width);
+  right: -100vw;
+  transition: all 200ms ease-in-out;
+}
+@media (min-width: 900px) {
+  .share__social-list-wrapper {
+    transform: scale(0.1);
+    right: -228%;
+    top: 0;
+    opacity: 0;
+    padding-block: 0.35em;
+    width: 248px;
+    border-radius: 10px;
+  }
+}
+.share__social-list-wrapper.active {
+  right: calc(-1 * var(--padding-inline-body));
+}
+@media (min-width: 900px) {
+  .share__social-list-wrapper.active {
+    transform: scale(1);
+    transform-origin: center center;
+    right: -228%;
+    top: -165%;
+    opacity: 1;
+  }
 }
 .share__label {
   letter-spacing: 0.4em;
+  margin-right: 2.5em;
+}
+@media (min-width: 900px) {
+  .share__label {
+    margin-right: 0;
+  }
 }
 .share__social-list {
   list-style: none;
   display: flex;
   align-items: center;
-  margin-left: 1em;
   gap: 1em;
+  height: var(--author-picture-size);
+  margin-left: -1em;
+  margin-right: auto;
+  position: relative;
+}
+.share__social-list::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  aspect-ratio: 1;
+  background-color: var(--clr-p-400);
+  transform: translateX(-32%) translateY(122%) rotateZ(45deg);
+  display: none;
+}
+@media (min-width: 900px) {
+  .share__social-list::after {
+    display: block;
+  }
+}
+@media (min-width: 900px) {
+  .share__social-list {
+    margin-left: 1em;
+    margin-right: 0;
+  }
+}
+.share__link {
+  cursor: pointer;
 }
